@@ -1,10 +1,388 @@
-<html>
-    <head>
-        <title>
-            BigBlock InfraWorld
-        </title>
-    </head>
-    <body>
-        Hello, InfraWorld!
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bigblock Infraworld | Premium Real Estate</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Hero Section Specifics */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-bg-white);
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            color: var(--color-bg-white);
+            font-size: 4rem;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-md);
+            opacity: 0.9;
+        }
+
+        /* Thought Section */
+        .thought {
+            background-color: var(--color-primary);
+            color: var(--color-bg-white);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+        }
+
+        .thought blockquote {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Property Grid */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .property-card {
+            background: var(--color-bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .property-image {
+            height: 250px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .property-overlay {
+            position: absolute;
+            top: 0;
+            ;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+
+        .property-card:hover .property-overlay {
+            opacity: 1;
+        }
+
+        .property-info {
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+
+        .property-info h3 {
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-secondary);
+        }
+
+        .contact-phones a {
+            display: block;
+            color: var(--color-bg-white);
+            margin: 5px 0;
+            font-weight: 600;
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 1.5rem 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-bg-white);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .nav-links a {
+            color: var(--color-bg-white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-secondary);
+            color: var(--color-text-light);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-contact a {
+            color: var(--color-accent);
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">BIGBLOCK <span>INFRAWORLD</span></a>
+            <div class="mobile-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="happy.html">Clients</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content fade-in-up">
+            <h1>Building Your Dreams</h1>
+            <p>Premium Real Estate Solutions in Pune's Fastest Growing Hubs</p>
+            <a href="#properties" class="btn">Explore Properties</a>
+        </div>
+    </header>
+
+    <!-- Thought Section -->
+    <section class="thought fade-in-up">
+        <div class="container">
+            <h3>Today's Thought</h3>
+            <blockquote>
+                "You will reach your destination by wandering also, Misguided are those who have never left their homes"
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Our Prime Locations</h2>
+
+            <div class="property-grid">
+                <!-- Card 1: Ravet -->
+                <div class="property-card fade-in-up">
+                    <div class="property-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="property-overlay">
+                            <span style="color:white; margin-bottom:1rem;">For More Information</span>
+                            <div class="contact-phones">
+                                <a href="tel:+918888825174">+91 88888 25174</a>
+                                <a href="tel:+918668907004">+91 86689 07004</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Ravet</h3>
+                        <p>Experience luxury living</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: New Wakad -->
+                <div class="property-card fade-in-up">
+                    <div class="property-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="property-overlay">
+                            <span style="color:white; margin-bottom:1rem;">For More Information</span>
+                            <div class="contact-phones">
+                                <a href="tel:+918888825174">+91 88888 25174</a>
+                                <a href="tel:+918668907004">+91 86689 07004</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <h3>New Wakad</h3>
+                        <p>Modern homes for modern families</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Dange Chowk -->
+                <div class="property-card fade-in-up">
+                    <div class="property-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1484154218962-a1c00207099b?q=80&w=2074&auto=format&fit=crop');">
+                        <div class="property-overlay">
+                            <span style="color:white; margin-bottom:1rem;">For More Information</span>
+                            <div class="contact-phones">
+                                <a href="tel:+918888825174">+91 88888 25174</a>
+                                <a href="tel:+918668907004">+91 86689 07004</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Dange Chowk</h3>
+                        <p>Heart of the city</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Punawale -->
+                <div class="property-card fade-in-up">
+                    <div class="property-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1592595896551-12b371d546d5?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="property-overlay">
+                            <span style="color:white; margin-bottom:1rem;">For More Information</span>
+                            <div class="contact-phones">
+                                <a href="tel:+918888825174">+91 88888 25174</a>
+                                <a href="tel:+918668907004">+91 86689 07004</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Punawale</h3>
+                        <p>Peaceful surroundings</p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Tathawade -->
+                <div class="property-card fade-in-up">
+                    <div class="property-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="property-overlay">
+                            <span style="color:white; margin-bottom:1rem;">For More Information</span>
+                            <div class="contact-phones">
+                                <a href="tel:+918888825174">+91 88888 25174</a>
+                                <a href="tel:+918668907004">+91 86689 07004</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Tathawade</h3>
+                        <p>Educational Hub</p>
+                    </div>
+                </div>
+
+                <!-- Card 6: Aundh Ravet -->
+                <div class="property-card fade-in-up">
+                    <div class="property-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1600596542815-3ad19fb21261?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="property-overlay">
+                            <span style="color:white; margin-bottom:1rem;">For More Information</span>
+                            <div class="contact-phones">
+                                <a href="tel:+918888825174">+91 88888 25174</a>
+                                <a href="tel:+918668907004">+91 86689 07004</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Aundh Ravet</h3>
+                        <p>Premium Connectivity</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>BIGBLOCK INFRAWORLD PVT LTD</h3>
+                <p>Office no 217/18 Latitude Mall, Kate Wasti, Punawale, Pune 411033</p>
+                <div class="footer-contact">
+                    <a href="tel:+918888825174">+91 88888 25174</a> |
+                    <a href="tel:+918668907004">+91 86689 07004</a>
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:admin@bigblockinfraworld.in">admin@bigblockinfraworld.in</a> |
+                    <a href="mailto:info@bigblockinfraworld.in">info@bigblockinfraworld.in</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Bigblock Infraworld. All rights reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Made with Love From xTream Engineering
+                    Services Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
 </html>

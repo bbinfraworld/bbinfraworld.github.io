@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Bigblock Infraworld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .job-card {
+            background: var(--color-bg-white);
+            border: 1px solid var(--color-border);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-fast);
+        }
+
+        .job-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .job-meta {
+            color: var(--color-text-dark);
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" style="background: var(--color-primary); position: relative;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">BIGBLOCK <span>INFRAWORLD</span></a>
+            <div class="mobile-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="happy.html">Clients</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="section-title" style="margin-top: var(--spacing-lg);">
+        <h1>Join Our Team</h1>
+        <p style="font-size: 1.1rem; max-width: 600px; margin: 1rem auto; opacity: 0.8;">
+            We provide residential, commercial, industrial, and agricultural properties, as well as land development and
+            construction.
+        </p>
+    </header>
+
+    <section class="container fade-in-up">
+        <h3 style="margin-bottom: var(--spacing-md); border-left: 4px solid var(--color-accent); padding-left: 10px;">
+            Current Openings</h3>
+
+        <div class="job-card">
+            <div>
+                <div class="job-title">Relation Manager</div>
+                <div class="job-meta">Number of Positions: 5</div>
+            </div>
+            <a href="mailto:admin@bigblockinfraworld.in" class="btn btn-outline">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div>
+                <div class="job-title">Team Manager</div>
+                <div class="job-meta">Number of Positions: 2</div>
+            </div>
+            <a href="mailto:admin@bigblockinfraworld.in" class="btn btn-outline">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div>
+                <div class="job-title">Pre-Sales</div>
+                <div class="job-meta">Number of Positions: 5</div>
+            </div>
+            <a href="mailto:admin@bigblockinfraworld.in" class="btn btn-outline">Apply Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>BIGBLOCK INFRAWORLD PVT LTD</h3>
+                <p>Office no 217/18 Latitude Mall, Kate Wasti, Punawale, Pune 411033</p>
+                <div class="footer-contact">
+                    <a href="tel:+918888825174">+91 88888 25174</a> |
+                    <a href="tel:+918668907004">+91 86689 07004</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Bigblock Infraworld.</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Made with Love From xTream Engineering
+                    Services Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
