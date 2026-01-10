@@ -19,8 +19,8 @@
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-md);
+            gap: 50px;
+            align-items: start;
         }
 
         @media (max-width: 768px) {
@@ -29,41 +29,143 @@
             }
         }
 
-        .contact-info-box {
-            background: var(--color-primary);
-            color: var(--color-bg-white);
-            padding: var(--spacing-md);
+        .contact-left h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-intro {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .contact-cta a {
+            color: #e91e63;
+        }
+
+        .contact-cta strong {
+            color: #e91e63;
+        }
+
+        .hq-box {
+            background: linear-gradient(135deg, #1a051d 0%, #2d1b35 100%);
+            color: #fff;
+            padding: 25px;
             border-radius: 8px;
         }
 
-        .contact-item {
-            margin-bottom: var(--spacing-md);
+        .hq-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fff;
         }
 
-        .contact-item h4 {
-            color: var(--color-accent);
-            margin-bottom: var(--spacing-xs);
+        .hq-box p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
 
-        .contact-item a {
-            color: var(--color-bg-white);
-            display: block;
-            margin-bottom: 5px;
+        .hq-contact {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
         }
 
-        .contact-form input,
-        .contact-form textarea {
+        .hq-contact span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hq-contact i {
+            color: #d4a574;
+        }
+
+        .contact-right {
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-right h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .contact-right input,
+        .contact-right select,
+        .contact-right textarea {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--color-border);
-            border-radius: 4px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             font-family: var(--font-body);
+            font-size: 0.95rem;
         }
 
-        .contact-form textarea {
-            resize: vertical;
-            height: 150px;
+        .contact-right input:focus,
+        .contact-right textarea:focus {
+            outline: none;
+            border-color: #7e1d7e;
+        }
+
+        .phone-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .phone-row select {
+            width: 35%;
+        }
+
+        .phone-row input {
+            flex: 1;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-label a {
+            color: #e91e63;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1a051d 0%, #7e1d7e 100%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(126, 29, 126, 0.3);
         }
     </style>
 </head>
@@ -87,59 +189,51 @@
         </div>
     </nav>
 
-    <header class="section-title" style="margin-top: var(--spacing-lg);">
-        <h1>Contact Us</h1>
-        <p style="font-size: 1.1rem; margin-top: 5px; opacity: 0.8;">Turn your property dreams into reality</p>
-    </header>
-
-    <section class="container fade-in-up">
+    <section class="container fade-in-up" style="margin-top: var(--spacing-lg);">
         <div class="contact-wrapper">
-            <!-- Left: Info -->
-            <div class="contact-info-box">
-                <div class="contact-item">
-                    <h4>Address</h4>
-                    <p>Office no 217/18 Latitude Mall, Kate Wasti,<br>Punawale, Pune, Maharashtra, 411033</p>
-                </div>
-                <div class="contact-item">
-                    <h4>Phone</h4>
-                    <a href="tel:+918888825174">+91 88888 25174</a>
-                    <a href="tel:+918668907004">+91 86689 07004</a>
-                </div>
-                <div class="contact-item">
-                    <h4>Email</h4>
-                    <a href="mailto:admin@bigblockinfraworld.in">admin@bigblockinfraworld.in</a>
-                    <a href="mailto:hr@bigblockinfraworld.in">hr@bigblockinfraworld.in</a>
-                    <a href="mailto:info@bigblockinfraworld.in">info@bigblockinfraworld.in</a>
+            <!-- Left: Contact Info -->
+            <div class="contact-left">
+                <h1>Contact Us</h1>
+                <p class="contact-intro">Give us a call, send us an email or a letter - or drop by to have a chat. We
+                    are always here to help out in whatever way we can.</p>
+
+                <p class="contact-cta">If you have any question, find it on <a href="#">FAQs</a> or if you would like to
+                    speak to us directly, call us on our toll free number <strong>+91 88888 25174</strong></p>
+
+                <!-- Corporate HQ Box -->
+                <div class="hq-box">
+                    <h3>Corporate Headquarter</h3>
+                    <p>Office no 217/18, Latitude Mall, Kate Wasti, Punawale, Pune - 411033, Maharashtra</p>
+                    <div class="hq-contact">
+                        <span><i class="fas fa-phone-alt"></i> +91 88888 25174</span>
+                        <span><i class="fas fa-envelope"></i> admin@bigblockinfraworld.in</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Right: Form -->
-            <div class="contact-form">
-                <h3>Send Message</h3>
-                <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="tel" placeholder="Your Phone">
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
+            <div class="contact-right">
+                <h3>Connect with us!</h3>
+                <form onsubmit="event.preventDefault(); alert('Thank you! We will get back to you soon.');">
+                    <input type="text" placeholder="Name" required>
+                    <div class="phone-row">
+                        <select class="country-code">
+                            <option>+91 India</option>
+                            <option>+1 USA</option>
+                            <option>+44 UK</option>
+                            <option>+971 UAE</option>
+                        </select>
+                        <input type="tel" placeholder="Phone" required>
+                    </div>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" rows="4"></textarea>
+                    <label class="checkbox-label">
+                        <input type="checkbox" checked> I agree to BigBlock Infraworld <a href="#">T&C</a> & <a
+                            href="#">Privacy</a>
+                    </label>
+                    <button type="submit" class="btn-submit">Get a Call</button>
                 </form>
             </div>
-        </div>
-    </section>
-
-    <section class="container fade-in-up" style="padding-top: 0;">
-        <div style="width: 100%; height: 400px; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-md);">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.999719602434!2d73.7475865751941!3d18.61919998249427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b97946155555%3A0x6b7724213961502!2sLatitude%20Mall!5e0!3m2!1sen!2sin!4v1709635000000!5m2!1sen!2sin"
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-        <div style="text-align: center; margin-top: 1.5rem;">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Latitude+Mall+Punawale+Pune" target="_blank"
-                class="btn">
-                Get Directions <span style="margin-left: 5px;">📍</span>
-            </a>
         </div>
     </section>
 
