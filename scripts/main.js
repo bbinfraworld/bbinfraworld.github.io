@@ -42,4 +42,126 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
         });
     }
+
+    // Lightbox Gallery Implementation
+    const initLightbox = () => {
+        // Create modal elements only if they don't exist
+        if (!document.querySelector('.lightbox-modal')) {
+            const modal = document.createElement('div');
+            modal.className = 'lightbox-modal';
+            modal.innerHTML = `
+                <span class="lightbox-close">&times;</span>
+                <a class="lightbox-prev">&#10094;</a>
+                <a class="lightbox-next">&#10095;</a>
+                <div class="lightbox-container">
+                    <div class="lightbox-details">
+                        <h3 id="lightbox-title"></h3>
+                        <p id="lightbox-desc"></p>
+                    </div>
+                    <div class="lightbox-image-wrapper">
+                        <img class="lightbox-content">
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            // Elements
+            const closeBtn = modal.querySelector('.lightbox-close');
+            const lightboxImg = modal.querySelector('.lightbox-content');
+            const lightboxTitle = modal.querySelector('#lightbox-title');
+            const lightboxDesc = modal.querySelector('#lightbox-desc');
+            const prevBtn = modal.querySelector('.lightbox-prev');
+            const nextBtn = modal.querySelector('.lightbox-next');
+
+            // Find all unique images for gallery navigation
+            const galleryImages = Array.from(document.querySelectorAll('.image-container img, .client-image-container img'));
+            let currentIndex = 0;
+
+            const updateContent = (index) => {
+                if (index < 0 || index >= galleryImages.length) return;
+
+                const img = galleryImages[index];
+
+                // Find parent card to scrape text - reused logic
+                const card = img.closest('.achievement-card') || img.closest('.testimonial-card');
+                let titleText = "Image Details";
+                let descText = "";
+
+                if (card) {
+                    if (card.classList.contains('achievement-card')) {
+                        const h3 = card.querySelector('.achievement-info h3');
+                        if (h3) titleText = h3.textContent;
+                        descText = img.alt || "Achievement and Recognition";
+                    } else if (card.classList.contains('testimonial-card')) {
+                        const h4 = card.querySelector('.testimonial-content h4');
+                        const p = card.querySelector('.testimonial-content p');
+                        if (h4) titleText = h4.textContent;
+                        if (p) descText = p.textContent;
+                    }
+                }
+
+                lightboxImg.src = img.src;
+                lightboxTitle.textContent = titleText;
+                lightboxDesc.textContent = descText;
+                currentIndex = index;
+            };
+
+            const closeLightbox = () => {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    lightboxImg.src = '';
+                    lightboxTitle.textContent = '';
+                    lightboxDesc.textContent = '';
+                }, 300);
+            };
+
+            // Event Listeners
+            closeBtn.addEventListener('click', closeLightbox);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeLightbox();
+                }
+            });
+
+            // Navigation
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) newIndex = galleryImages.length - 1; // Loop to last
+                updateContent(newIndex);
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                let newIndex = currentIndex + 1;
+                if (newIndex >= galleryImages.length) newIndex = 0; // Loop to first
+                updateContent(newIndex);
+            });
+
+            // Keyboard Nav
+            document.addEventListener('keydown', (e) => {
+                if (modal.style.display === 'flex') {
+                    if (e.key === 'ArrowLeft') prevBtn.click();
+                    if (e.key === 'ArrowRight') nextBtn.click();
+                    if (e.key === 'Escape') closeLightbox();
+                }
+            });
+
+            // Open Logic
+            galleryImages.forEach((img, index) => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', (e) => {
+                    updateContent(index);
+                    modal.style.display = 'flex';
+                    setTimeout(() => {
+                        modal.classList.add('show');
+                    }, 10);
+                });
+            });
+        }
+    };
+
+    initLightbox();
 });

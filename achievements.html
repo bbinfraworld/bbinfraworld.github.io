@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Achievements | Bigblock Infraworld</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .achievement-card {
+            background: var(--color-bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+            position: relative;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        /* 1:1 Aspect Ratio Container */
+        .image-container {
+            width: 100%;
+            padding-top: 100%;
+            /* 1:1 Aspect Ratio */
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures image covers the square area */
+            transition: transform 0.5s ease;
+        }
+
+        .achievement-card:hover .image-container img {
+            transform: scale(1.05);
+        }
+
+        .achievement-info {
+            padding: var(--spacing-sm);
+            text-align: center;
+        }
+
+        .achievement-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-secondary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" style="background: var(--color-primary); position: relative;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">BIGBLOCK <span>INFRAWORLD</span></a>
+            <div class="mobile-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="achievements.html" class="active">Achievements</a></li>
+                <li><a href="happy.html">Clients</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section-title" style="margin-top: var(--spacing-lg) !important;">
+        <h1>Our Achievements</h1>
+        <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.8;">🏆 Excellence Recognized 🏆</p>
+    </header>
+
+    <!-- Main Content -->
+    <section class="container fade-in-up">
+        <blockquote
+            style="font-size: 1.5rem; text-align: center; font-style: italic; max-width: 800px; margin: 0 auto; color: var(--color-secondary);">
+            "Awards are milestones on our journey to perfection. We are proud of our team's dedication and success."
+        </blockquote>
+
+        <div class="achievements-grid">
+            <!-- Item 1 -->
+            <div class="achievement-card">
+                <div class="image-container">
+                    <img src="assets/achievements/Award winning performance in trio space groups 2022.jpeg"
+                        alt="Award winning performance 2022">
+                </div>
+                <div class="achievement-info">
+                    <h3>Award Winning Performance (Trio Space Groups 2022)</h3>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="achievement-card">
+                <div class="image-container">
+                    <img src="assets/achievements/Pune mirror best seller award by relecation group in 2023.jpeg"
+                        alt="Pune Mirror Best Seller 2023">
+                </div>
+                <div class="achievement-info">
+                    <h3>Pune Mirror Best Seller Award (2023)</h3>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="achievement-card">
+                <div class="image-container">
+                    <img src="assets/achievements/Top contributions in Quarter 4 2023 in city vezda.jpeg"
+                        alt="Top contributions Q4 2023">
+                </div>
+                <div class="achievement-info">
+                    <h3>Top Contributions Q4 2023 (City Vezda)</h3>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="achievement-card">
+                <div class="image-container">
+                    <img src="assets/achievements/WhatsApp Image 2026-01-04 at 4.37.00 PM.jpeg" alt="Achievement Image">
+                </div>
+                <div class="achievement-info">
+                    <h3>Team Excellence</h3>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="achievement-card">
+                <div class="image-container">
+                    <img src="assets/achievements/WhatsApp Image 2026-01-04 at 4.37.01 PM.jpeg" alt="Achievement Image">
+                </div>
+                <div class="achievement-info">
+                    <h3>Milestone Celebration</h3>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="achievement-card">
+                <div class="image-container">
+                    <img src="assets/achievements/WhatsApp Image 2026-01-04 at 4.37.02 PM.jpeg" alt="Achievement Image">
+                </div>
+                <div class="achievement-info">
+                    <h3>Community Recognition</h3>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="achievement-card">
+                <div class="image-container">
+                    <img src="assets/achievements/WhatsApp Image 2026-01-04 at 4.37.03 PM (1).jpeg"
+                        alt="Achievement Image">
+                </div>
+                <div class="achievement-info">
+                    <h3>Leadership Award</h3>
+                </div>
+            </div>
+
+
+
+            <!-- Item 9 -->
+            <div class="achievement-card">
+                <div class="image-container">
+                    <img src="assets/achievements/WhatsApp Image 2026-01-04 at 4.37.03 PM.jpeg" alt="Achievement Image">
+                </div>
+                <div class="achievement-info">
+                    <h3>Annual Gala 2023</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>BIGBLOCK INFRAWORLD PVT LTD</h3>
+                <p>Office no 217/18 Latitude Mall, Kate Wasti, Punawale, Pune 411033</p>
+                <div class="footer-contact">
+                    <a href="tel:+918888825174">+91 88888 25174</a> |
+                    <a href="tel:+918668907004">+91 86689 07004</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Bigblock Infraworld.</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Made with Love From xTream Engineering
+                    Services Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
