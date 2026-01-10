@@ -1,3 +1,13 @@
+// Hide splash screen when page fully loads
+window.addEventListener('load', () => {
+    const splash = document.getElementById('splash-screen');
+    if (splash) {
+        setTimeout(() => {
+            splash.classList.add('hidden');
+        }, 500); // Small delay for smoother transition
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Intersection Observer for Fade-in animations
@@ -74,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const nextBtn = modal.querySelector('.lightbox-next');
 
             // Find all unique images for gallery navigation
-            const galleryImages = Array.from(document.querySelectorAll('.image-container img, .client-image-container img'));
+            const galleryImages = Array.from(document.querySelectorAll('.image-container img, .client-image-container img, .lightbox-trigger'));
             let currentIndex = 0;
 
             const updateContent = (index) => {
@@ -83,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const img = galleryImages[index];
 
                 // Find parent card to scrape text - reused logic
-                const card = img.closest('.achievement-card') || img.closest('.testimonial-card');
+                const card = img.closest('.achievement-card') || img.closest('.testimonial-card') || img.closest('.news-card');
                 let titleText = "Image Details";
                 let descText = "";
 
@@ -96,6 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         const h4 = card.querySelector('.testimonial-content h4');
                         const p = card.querySelector('.testimonial-content p');
                         if (h4) titleText = h4.textContent;
+                        if (p) descText = p.textContent;
+                    } else if (card.classList.contains('news-card')) {
+                        const h3 = card.querySelector('.news-title');
+                        const p = card.querySelector('.news-excerpt');
+                        if (h3) titleText = h3.textContent;
                         if (p) descText = p.textContent;
                     }
                 }

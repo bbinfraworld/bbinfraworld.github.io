@@ -49,6 +49,63 @@ img {
     display: block;
 }
 
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a051d 0%, #2d1b35 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-logo {
+    width: 150px;
+    height: auto;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.splash-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #d4a574;
+    border-radius: 50%;
+    margin-top: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Utilities */
 .container {
     width: 90%;
@@ -539,6 +596,138 @@ section {
     margin-bottom: 1rem;
 }
 
+/* Featured Locations */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .locations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.location-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    transition: var(--transition-normal);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.location-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.location-overlay {
+    width: 100%;
+    padding: 12px 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+}
+
+.location-overlay h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.location-stats {
+    padding: 1rem;
+    text-align: center;
+    background: var(--color-bg-white);
+}
+
+.location-count {
+    color: #e91e63;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Curated Collections */
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .collections-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.collection-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    transition: var(--transition-normal);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.collection-image {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    transition: var(--transition-normal);
+}
+
+.collection-card:hover .collection-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.collection-overlay h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-transform: capitalize;
+}
+
 /* Footer */
 footer {
     background-color: #1a051d;
@@ -547,6 +736,7 @@ footer {
     padding: var(--spacing-lg) 0 20px;
     font-size: 0.9rem;
     text-align: left !important;
+    margin-top: var(--spacing-lg);
 }
 
 .footer-grid {

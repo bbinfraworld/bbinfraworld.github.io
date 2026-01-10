@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Bigblock Infraworld</title>
+    <title>Our Events | Bigblock Infraworld</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="shortcut icon" href="favicon.ico">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,12 +15,13 @@
         rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
 
-    <!-- Navigation (Reused) -->
+    <!-- Navigation -->
     <nav class="navbar" style="background: var(--color-primary); position: relative;">
         <div class="container nav-container">
             <a href="index.html" class="logo">BIGBLOCK <span>INFRAWORLD</span></a>
@@ -37,26 +39,76 @@
         </div>
     </nav>
 
-    <header class="section-title" style="margin-top: var(--spacing-lg);">
-        <h1>About Us</h1>
+    <!-- Header -->
+    <header class="section-title" style="margin-top: var(--spacing-lg) !important;">
+        <h1>Events & Milestones</h1>
+        <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.8;">🎉 Celebrating Success & Excellence 🎉</p>
     </header>
 
+    <!-- Main Content -->
     <section class="container fade-in-up">
-        <div style="max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 1.1rem; text-align: center;">
-            <p style="margin-bottom: var(--spacing-md);">
-                <strong>Bigblock Infraworld Pvt Ltd</strong> is Pune's best real-estate company working in east and west
-                region of Pune.
-                We are working with only reputed & credible Developers. We believe in customer satisfaction and provide
-                end to end support to clients.
-            </p>
-            <p>
-                Our mission is to bridge the gap between dream homes and reality by offering top-notch consultancy and
-                property solutions.
-            </p>
+        <blockquote
+            style="font-size: 1.5rem; text-align: center; font-style: italic; max-width: 800px; margin: 0 auto; color: var(--color-secondary);">
+            "Great things in business are never done by one person. They're done by a team of people. Here are some of
+            our memorable moments."
+        </blockquote>
+
+        <div class="news-grid"> <!-- Reusing news-grid for similar card layout -->
+
+            <!-- Event 1 -->
+            <div class="news-card">
+                <img src="assets/achievements/Pune mirror best seller award by relecation group in 2023.jpeg"
+                    alt="Pune Mirror Awards" class="news-image lightbox-trigger">
+                <div class="news-content">
+                    <div class="news-date">2023</div>
+                    <h3 class="news-title">Pune Mirror Real Estate Awards</h3>
+                    <p class="news-excerpt">BigBlock Infraworld was honored with the "Best Seller Award" by Relocation
+                        Group at the prestigious Pune Mirror Real Estate Awards. A night of recognition for our hard
+                        work and dedication to our clients.</p>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="news-card">
+                <img src="assets/achievements/Award winning performance in trio space groups 2022.jpeg"
+                    alt="Trio Space Group Meet" class="news-image lightbox-trigger">
+                <div class="news-content">
+                    <div class="news-date">2022</div>
+                    <h3 class="news-title">Trio Space Group Annual Meet</h3>
+                    <p class="news-excerpt">Celebrating our "Award Winning Performance" at the Trio Space Groups Annual
+                        Meet. This event highlighted our strategic partnership and exceptional sales achievements.</p>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="news-card">
+                <img src="assets/achievements/Top contributions in Quarter 4 2023 in city vezda.jpeg"
+                    alt="City Vezda Meet" class="news-image lightbox-trigger">
+                <div class="news-content">
+                    <div class="news-date">Q4 2023</div>
+                    <h3 class="news-title">City Vezda Quarterly Gathering</h3>
+                    <p class="news-excerpt">Recognized for "Top Contributions" in Quarter 4 of 2023 at the City Vezda
+                        meet. Our team's relentless effort in driving value for customers was the highlight of the
+                        evening.</p>
+                </div>
+            </div>
+
+            <!-- Event 4 -->
+            <div class="news-card">
+                <img src="assets/achievements/WhatsApp Image 2026-01-04 at 4.37.03 PM.jpeg" alt="Annual Gala"
+                    class="news-image lightbox-trigger">
+                <div class="news-content">
+                    <div class="news-date">2023</div>
+                    <h3 class="news-title">BigBlock Annual Gala</h3>
+                    <p class="news-excerpt">Our yearly celebration of team excellence, camaraderie, and shared vision.
+                        The Annual Gala brings together our entire family to celebrate the milestones we've achieved
+                        together.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Footer (Reused) -->
     <!-- Footer -->
     <footer>
         <div class="container">
