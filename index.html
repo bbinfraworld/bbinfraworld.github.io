@@ -11,6 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <style>
@@ -211,7 +213,9 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">BIGBLOCK <span>INFRAWORLD</span></a>
-            <div class="mobile-toggle">☰</div>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -361,27 +365,79 @@
     </section>
 
     <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <h3>BIGBLOCK INFRAWORLD PVT LTD</h3>
-                <p>Office no 217/18 Latitude Mall, Kate Wasti, Punawale, Pune 411033</p>
-                <div class="footer-contact">
-                    <a href="tel:+918888825174">+91 88888 25174</a> |
-                    <a href="tel:+918668907004">+91 86689 07004</a>
+            <div class="footer-grid">
+                <!-- About -->
+                <div>
+                    <h3>About Us</h3>
+                    <p>BigBlock Infraworld is a company with rich experience in real estate advisory that believes each
+                        real estate experience should be a simple and successful execution from a Dream to Reality.</p>
                 </div>
-                <div class="footer-contact">
-                    <a href="mailto:admin@bigblockinfraworld.in">admin@bigblockinfraworld.in</a> |
-                    <a href="mailto:info@bigblockinfraworld.in">info@bigblockinfraworld.in</a>
+
+                <!-- Quick Links 1 -->
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="achievements.html">Awards</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links 2 -->
+                <div>
+                    <h3>&nbsp;</h3> <!-- Spacer for alignment -->
+                    <ul>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Connect -->
+                <div>
+                    <h3>Connect with us</h3>
+                    <a href="mailto:admin@bigblockinfraworld.in" class="footer-email">admin@bigblockinfraworld.in</a>
+
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
+
             <div class="copyright">
-                <p>&copy; 2026 Bigblock Infraworld. All rights reserved.</p>
-                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Made with Love From xTream Engineering
+                <p>&copy; Copyright BigBlock Infraworld. 2026 All Right Reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Made with ❤️ from xTream Engineering
                     Services Ltd.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container-left">
+        <a href="tel:+918888825174" class="fab-phone">
+            <i class="fas fa-phone-alt"></i> <!-- Phone Symbol -->
+        </a>
+    </div>
+
+    <div class="fab-container-right">
+        <a href="mailto:admin@bigblockinfraworld.in" class="fab-enquire">
+            <i class="fas fa-envelope"></i> Enquire Now!
+        </a>
+        <a href="https://wa.me/918888825174" class="fab-whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="scripts/main.js"></script>
 </body>

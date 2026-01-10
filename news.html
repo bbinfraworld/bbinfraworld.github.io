@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest News | Bigblock Infraworld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .news-card {
+            background: var(--color-bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--color-border);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: var(--spacing-md);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            color: var(--color-text-dark);
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            margin-top: auto;
+            color: var(--color-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition-fast);
+        }
+
+        .read-more:hover {
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            line-height: 1;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-date {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .modal-text {
+            color: var(--color-text-dark);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .modal-text p {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" style="background: var(--color-primary); position: relative;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">BIGBLOCK <span>INFRAWORLD</span></a>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="happy.html">Clients</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="section-title" style="margin-top: var(--spacing-lg);">
+        <h1>Latest News & Insights</h1>
+        <p>Updates from Bigblock Infraworld and the Real Estate Market</p>
+    </header>
+
+    <section class="container fade-in-up" style="margin-bottom: var(--spacing-xl);">
+        <div class="news-grid">
+            <!-- Article 1: Metro Boom -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1531835551805-16d864c8d311?q=80&w=2070&auto=format&fit=crop"
+                    alt="Pune Metro Construction" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">January 8, 2026</span>
+                    <h2 class="news-title">Pune Metro Effect: Property Prices Predicted to Soar 20%</h2>
+                    <p class="news-excerpt">
+                        Metro Phase 2 is nearing completion. Experts forecast a 20% price appreciation in connected
+                        zones like Vanaz and Ramwadi. Don't miss the bus on this golden investment run.
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 2: IT Rentals -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1554232456-8727aae0cfa4?q=80&w=2070&auto=format&fit=crop"
+                    alt="IT Hub Office" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">December 28, 2025</span>
+                    <h2 class="news-title">Earn Passive Income: Highest Rental Yields in Hinjewadi</h2>
+                    <p class="news-excerpt">
+                        With major tech giants expanding, rental demand in West Pune is at an all-time high. Investors
+                        are seeing 4-6% annual returns. Secure your second income stream today.
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 3: Smart Homes -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=1965&auto=format&fit=crop"
+                    alt="Smart Green Home" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">December 15, 2025</span>
+                    <h2 class="news-title">Upgrade to Smart Living: The New Standard in 2026</h2>
+                    <p class="news-excerpt">
+                        Voice-controlled lighting, automated security, and energy efficiency are no longer luxuries.
+                        Discover why modern families are upgrading to smart homes in Balewadi.
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 4: Ring Road -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop"
+                    alt="Ring Road Highway" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">December 5, 2025</span>
+                    <h2 class="news-title">The Ring Road Revolution: Unlocking New Hotspots</h2>
+                    <p class="news-excerpt">
+                        The massive Ring Road project is reducing travel time by 50%. Peripheral areas like Moshi and
+                        Ravet are emerging as the next big residential hubs. Invest before prices correct!
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 5: NRI Investment -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=2071&auto=format&fit=crop"
+                    alt="Global Investment" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">November 28, 2025</span>
+                    <h2 class="news-title">Why NRIs Are Flocking to Pune Real Estate in 2026</h2>
+                    <p class="news-excerpt">
+                        Favorable exchange rates and transparent RERA norms have made Pune a top choice for global
+                        Indians. See why owning a home back home has never been easier or more profitable.
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 6: Integrated Townships -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop"
+                    alt="Township Living" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">November 15, 2025</span>
+                    <h2 class="news-title">Walk-to-Work: The Charm of Integrated Townships</h2>
+                    <p class="news-excerpt">
+                        Imagine a life with zero commute. Townships in Kharadi and Magarpatta offer schools, offices,
+                        and malls within walking distance. Experience the ultimate work-life balance.
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 7: Affordable Housing -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
+                    alt="Affordable Housing" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">November 1, 2025</span>
+                    <h2 class="news-title">First-Time Buyers: Wagholi & Undri Offer Best Value</h2>
+                    <p class="news-excerpt">
+                        Looking for your first dream home under ₹60 Lakhs? Wagholi and Undri offer spacious apartments
+                        without compromising on amenities. Stop renting and start owning!
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 8: Student Housing -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
+                    alt="Student Campus" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">October 20, 2025</span>
+                    <h2 class="news-title">Student Housing: A Recession-Proof Asset Class</h2>
+                    <p class="news-excerpt">
+                        Pune, the 'Oxford of the East', attracts thousands of students yearly. Investing in studio
+                        apartments near Viman Nagar and Kothrud guarantees year-round occupancy.
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 9: Commercial Growth -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+                    alt="Commercial Office" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">October 10, 2025</span>
+                    <h2 class="news-title">Commercial vs. Residential: Where to Put Your Money?</h2>
+                    <p class="news-excerpt">
+                        With Grade-A office leasing up by 15%, commercial real estate is offering higher returns than
+                        ever. We analyze the best office spaces to invest in for maximum ROI.
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Article 10: Festive Offers -->
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=2070&auto=format&fit=crop"
+                    alt="New Keys" class="news-image">
+                <div class="news-content">
+                    <span class="news-date">October 1, 2025</span>
+                    <h2 class="news-title">Lowest Home Loan Rates & Festive Offers are Here</h2>
+                    <p class="news-excerpt">
+                        Banks have slashed interest rates to historic lows. Combined with zero stamp duty offers from
+                        developers, there has never been a cheaper time to buy a home in Pune.
+                    </p>
+                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- News Modal -->
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img src="" alt="" class="modal-image" id="modalImage">
+            <div class="modal-body">
+                <span class="modal-date" id="modalDate"></span>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-text" id="modalText">
+                    <!-- Content will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About -->
+                <div>
+                    <h3>About Us</h3>
+                    <p>BigBlock Infraworld is a company with rich experience in real estate advisory that believes each
+                        real estate experience should be a simple and successful execution from a Dream to Reality.</p>
+                </div>
+
+                <!-- Quick Links 1 -->
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="achievements.html">Awards</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links 2 -->
+                <div>
+                    <h3>&nbsp;</h3> <!-- Spacer for alignment -->
+                    <ul>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Connect -->
+                <div>
+                    <h3>Connect with us</h3>
+                    <a href="mailto:admin@bigblockinfraworld.in" class="footer-email">admin@bigblockinfraworld.in</a>
+
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; Copyright BigBlock Infraworld. 2026 All Right Reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Made with ❤️ from xTream Engineering
+                    Services Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container-left">
+        <a href="tel:+918888825174" class="fab-phone">
+            <i class="fas fa-phone-alt"></i> <!-- Phone Symbol -->
+        </a>
+    </div>
+
+    <div class="fab-container-right">
+        <a href="mailto:admin@bigblockinfraworld.in" class="fab-enquire">
+            <i class="fas fa-envelope"></i> Enquire Now!
+        </a>
+        <a href="https://wa.me/918888825174" class="fab-whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        const newsData = [
+            {
+                id: 0,
+                title: "Pune Metro Effect: Property Prices Predicted to Soar 20%",
+                date: "January 8, 2026",
+                image: "https://images.unsplash.com/photo-1531835551805-16d864c8d311?q=80&w=2070&auto=format&fit=crop",
+                content: `
+                    <p>The operationalization of the Pune Metro Phase 1 has already demonstrated a significant impact on real estate prices, with areas like Kothrud and Yerwada seeing a 10-12% appreciation. Now, as <strong>Phase 2 nears completion</strong>, connecting Hinjewadi to Shivajinagar, experts are forecasting a further <strong>20% surge</strong> in property values along this corridor.</p>
+                    <p>For homebuyers, this connectivity means less time in traffic and more time with family. For investors, it's a window of opportunity. Once the metro is fully functional, these "affordable" zones will transform into premium connectivity hubs.</p>
+                    <p>BigBlock Infraworld recommends looking at projects in <strong>Vanaz, Ramwadi, and Kharadi</strong> right now to maximize your capital gains. The "Metro Premium" is real, and the time to cash in is now.</p>
+                `
+            },
+            {
+                id: 1,
+                title: "Earn Passive Income: Highest Rental Yields in Hinjewadi",
+                date: "December 28, 2025",
+                image: "https://images.unsplash.com/photo-1554232456-8727aae0cfa4?q=80&w=2070&auto=format&fit=crop",
+                content: `
+                    <p>With companies like Google and Microsoft expanding their Pune campuses, the influx of skilled professionals has created a massive rental housing shortage in West Pune. Consequently, rental yields in <strong>Hinjewadi, Wakad, and Baner</strong> have shot up to an impressive <strong>4-6%</strong>, significantly higher than the national average.</p>
+                    <p>Investing in a 2 BHK or studio apartment in these IT hubs is currently one of the safest bets. The vacancy rates are near zero, and year-on-year rental appreciation is steady.</p>
+                    <p>Don't just buy a home; buy an income-generating asset. Contact us to see our pre-leased inventory that starts paying you from Day 1.</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Upgrade to Smart Living: The New Standard in 2026",
+                date: "December 15, 2025",
+                image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=1965&auto=format&fit=crop",
+                content: `
+                    <p>Gone are the days when a swimming pool was the highlight of a luxury project. In 2026, the discerning Punekar demands a <strong>Smart Home</strong>. Developers are responding with apartments featuring voice-controlled lighting, app-based security systems, and AI-driven energy management.</p>
+                    <p>These features don't just add convenience; they add value. Resale data indicates that smart homes command a <strong>15% premium</strong> in the secondary market. From sustainable materials to automated climate control, the future of living is here.</p>
+                    <p>Explore our exclusive "Smart Luxury" collection in Balewadi and experience the convenience of tomorrow, today.</p>
+                `
+            },
+            {
+                id: 3,
+                title: "The Ring Road Revolution: Unlocking New Hotspots",
+                date: "December 5, 2025",
+                image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop",
+                content: `
+                    <p>The 170 km massive Ring Road project is not just a road; it's an economic artery. By directing heavy traffic outside the city and connecting major highways, it is reducing travel time by nearly <strong>50%</strong>. This infrastructure marvel has unlocked the potential of peripheral areas like <strong>Moshi, Ravet, and Charholi</strong>.</p>
+                    <p>These areas, once considered "too far," are now just a 20-minute booming drive from major hubs. Land prices here are still affordable, but they are rising fast. This is the classic "buy low, sell high" opportunity every investor waits for.</p>
+                    <p>BigBlock Infraworld has curated a list of high-potential plots and township projects along the Ring Road. Secure your piece of land before the boom accelerates.</p>
+                `
+            },
+            {
+                id: 4,
+                title: "Why NRIs Are Flocking to Pune Real Estate in 2026",
+                date: "November 28, 2025",
+                image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=2071&auto=format&fit=crop",
+                content: `
+                    <p>For Non-Resident Indians (NRIs), Pune has emerged as the top investment destination in India. The reasons are three-fold: the <strong>depreciating rupee</strong> offering more value, the transparency brought by <strong>MahaRERA</strong>, and Pune's status as a stable, non-volatile market.</p>
+                    <p>NRIs are particularly favoring managed residences and luxury condos in <strong>Koregaon Park and Kalyani Nagar</strong>, which offer high quality of life and easy liquidation. The digital transformation of property registration has also made managing assets remotely hassle-free.</p>
+                    <p>If you are an NRI looking to diversify your portfolio, Pune offers stability with growth. Let our specialized NRI desk assist you with a smooth, virtual buying experience.</p>
+                `
+            },
+            {
+                id: 5,
+                title: "Walk-to-Work: The Charm of Integrated Townships",
+                date: "November 15, 2025",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop",
+                content: `
+                    <p>Traffic is the bane of city life, but not for those living in Pune's modern Integrated Townships. Mega-townships in <strong>Magarpatta, Amanora, and Hinjewadi</strong> offer a lifestyle where your office, your child's school, the hospital, and the shopping mall are all within a 15-minute walk.</p>
+                    <p>The "Walk-to-Work" concept is gaining massive traction among millennial families who value time over traffic. These self-sustained ecosystems offer a superior quality of life with abundant green spaces and community living.</p>
+                    <p>Stop wasting 2 hours a day in traffic. Move to a township and reclaim your life. Ask us about the best township offers available this month.</p>
+                `
+            },
+            {
+                id: 6,
+                title: "First-Time Buyers: Wagholi & Undri Offer Best Value",
+                date: "November 1, 2025",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop",
+                content: `
+                    <p>Is your budget tight? Don't worry, your dream of owning a home in Pune is still achievable. Areas like <strong>Wagholi in the East and Undri in the South</strong> are offering fantastic value propositions. Here, you can still find spacious 2 BHK apartments under <strong>₹60 Lakhs</strong> with modern amenities.</p>
+                    <p>These areas have seen a massive improvement in social infrastructure with new international schools and hospitals coming up. With the municipal corporation limits expanding, these suburbs are rapidly getting urbanized.</p>
+                    <p>Stop paying rent. Use that money to build your own asset. We can help you find the perfect starter home that fits your budget and lifestyle.</p>
+                `
+            },
+            {
+                id: 7,
+                title: "Student Housing: A Recession-Proof Asset Class",
+                date: "October 20, 2025",
+                image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop",
+                content: `
+                    <p>Pune is known as the 'Oxford of the East' for a reason. With thousands of students flocking to colleges like Symbiosis and Fergusson every year, the demand for student accommodation stays constant, regardless of market ups and downs.</p>
+                    <p>Smart investors are buying <strong>studio apartments and 1 BHKs</strong> near educational hubs like Viman Nagar, Kothrud, and Lavale. These units guarantee year-round occupancy and often fetch higher per-square-foot rents than family homes.</p>
+                    <p>Looking for a recession-proof investment? Student housing is the answer. Let us show you properties with the highest student footfall.</p>
+                `
+            },
+            {
+                id: 8,
+                title: "Commercial vs. Residential: Where to Put Your Money?",
+                date: "October 10, 2025",
+                image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+                content: `
+                    <p>While residential real estate is emotional, commercial real estate is logical. Post-pandemic, the demand for Grade-A office spaces and retail outlets has surged by <strong>15%</strong>. Investing in a pre-leased office or a boutique retail shop can offer returns as high as <strong>7-9%</strong>, far outperforming residential yields.</p>
+                    <p>Small office spaces in emerging hubs like Baner High Street and Wakad are becoming affordable entry points for retail investors. Capital appreciation in commercial assets is also typically faster in growing economies.</p>
+                    <p>Ready to diversify? Talk to our commercial advisory team to find high-yield assets that work harder for your money.</p>
+                `
+            },
+            {
+                id: 9,
+                title: "Lowest Home Loan Rates & Festive Offers are Here",
+                date: "October 1, 2025",
+                image: "https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=2070&auto=format&fit=crop",
+                content: `
+                    <p>It's the perfect storm for homebuyers. Banks have slashed home loan interest rates to historic lows, making EMIs more affordable than monthly rent in many areas. Combining this with <strong>Zero Stamp Duty</strong> offers and festive discounts from developers, the upfront cost of buying is significantly lower.</p>
+                    <p>Experts agree that these rock-bottom rates wont last forever. Locking in a fixed-rate loan now could save you lakhs over the tenure of your mortgage.</p>
+                    <p>This is it. The stars have aligned. Stop waiting and start buying. Call BigBlock Infraworld today to safeguard your financial future.</p>
+                `
+            }
+        ];
+
+        // Immediate initialization
+        (function () {
+            const modal = document.getElementById("newsModal");
+            const closeBtn = document.querySelector(".modal-close");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalDate = document.getElementById("modalDate");
+            const modalImage = document.getElementById("modalImage");
+            const modalText = document.getElementById("modalText");
+
+            // Event Delegation for Read More links
+            document.body.addEventListener('click', function (e) {
+                // Check if the clicked element is a read-more link
+                if (e.target.matches('.read-more')) {
+                    e.preventDefault();
+
+                    // Find the index of the article card in the grid logic
+                    const card = e.target.closest('.news-card');
+                    if (card) {
+                        // Find index among all news cards
+                        const cards = Array.from(document.querySelectorAll('.news-card'));
+                        const index = cards.indexOf(card);
+
+                        if (index !== -1 && newsData[index]) {
+                            const article = newsData[index];
+
+                            modalTitle.innerText = article.title;
+                            modalDate.innerText = article.date;
+                            modalImage.src = article.image;
+                            modalText.innerHTML = article.content;
+
+                            modal.style.display = 'flex'; // Ensure flex display
+                            // Small delay to allow transition
+                            setTimeout(() => {
+                                modal.classList.add("show");
+                            }, 10);
+
+                            document.body.style.overflow = "hidden"; // Prevent scrolling
+                        }
+                    }
+                }
+
+                // Close Modal on Click Outside
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close Button
+            if (closeBtn) {
+                closeBtn.onclick = closeModal;
+            }
+
+            function closeModal() {
+                modal.classList.remove("show");
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300); // Match CSS transition duration
+                document.body.style.overflow = "";
+            }
+        })();
+    </script>
+</body>
+
+</html>
