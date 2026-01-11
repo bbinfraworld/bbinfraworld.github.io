@@ -211,5 +211,58 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     faqSetup();
 
+    // FAQ Search Functionality
+    const initFaqSearch = () => {
+        const searchInput = document.getElementById('faqSearch');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase().trim();
+                const items = document.querySelectorAll('.faq-item');
+                const categories = document.querySelectorAll('.faq-category-title');
+
+                items.forEach(item => {
+                    const question = item.querySelector('.faq-question h3').innerText.toLowerCase();
+                    const answer = item.querySelector('.faq-answer').innerText.toLowerCase();
+
+                    if (question.includes(term) || answer.includes(term)) {
+                        item.classList.remove('hidden-by-search');
+                        item.style.display = 'block';
+                    } else {
+                        item.classList.add('hidden-by-search');
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Hide empty categories
+                categories.forEach(cat => {
+                    // This is tricky because items are siblings or children of a container sibling?
+                    // Structure: h2, div.faq-container > div.faq-item
+                    // The .faq-container is the next sibling of h2
+
+                    const container = cat.nextElementSibling;
+                    if (container && container.classList.contains('faq-container')) {
+                        const visibleItems = container.querySelectorAll('.faq-item:not(.hidden-by-search)');
+                        if (visibleItems.length === 0) {
+                            cat.style.display = 'none';
+                        } else {
+                            cat.style.display = 'block';
+                        }
+                    }
+                });
+            });
+
+            // Add focus effect
+            searchInput.addEventListener('focus', () => {
+                searchInput.style.borderColor = 'var(--color-primary)';
+                searchInput.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.style.borderColor = '#ddd';
+                searchInput.style.boxShadow = '0 4px 10px rgba(0,0,0,0.05)';
+            });
+        }
+    };
+    initFaqSearch();
+
     initLightbox();
 });
