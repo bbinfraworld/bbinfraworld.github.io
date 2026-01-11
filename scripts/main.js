@@ -178,5 +178,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // FAQ Accordion Logic
+    const faqSetup = () => {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.closest('.faq-item');
+                const answer = item.querySelector('.faq-answer');
+
+                // Check if currently active
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    answer.style.maxHeight = null;
+                } else {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    };
+    faqSetup();
+
     initLightbox();
 });
