@@ -116,6 +116,442 @@
     </header>
 
     <!-- Properties Section -->
+    <!-- Trending Projects Section -->
+    <section id="trending-projects" class="fade-in-up" style="background: #fff; padding: 60px 0;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <h2 style="font-size: 2.5rem; color: var(--color-text-dark); margin-bottom: 10px;">Trending Projects
+                </h2>
+                <p style="font-size: 1.1rem; color: #666;">The Noteworthy Real Estate in Pune</p>
+            </div>
+
+            <div class="trending-slider-wrapper" style="position: relative;">
+                <button class="slider-btn prev" id="slidePrev"><i class="fas fa-chevron-left"></i></button>
+
+                <div class="trending-scroll-container" id="trendingScroll">
+                    <!-- Intro Card -->
+                    <div class="trending-card intro-card">
+                        <div class="intro-content">
+                            <i class="far fa-building"></i>
+                            <h3>Best Sellers in Pune</h3>
+                            <p>The latest residential offerings from the best builders in Pune, handpicked by our team
+                                of experts just for you.</p>
+                            <a href="#properties" class="btn-view-all">View All</a>
+                        </div>
+                    </div>
+
+                    <!-- 108 Astra -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, '108 Astra', 'assets/properties/BB Digital 108 Astra Punawale Elevation.jpeg', 'Punawale, Pune', '2, 3 BHK | 950 - 1300 SQ. FT.', '₹ 65 L - 95 L', '108 Avenues')">
+                        <div class="card-image">
+                            <span class="tag-new">New launch</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB Digital 108 Astra Punawale Elevation.jpeg" alt="108 Astra">
+                        </div>
+                        <div class="card-details">
+                            <h4>108 Astra <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By 108 Avenues</p>
+                            <p class="location">Punawale, Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>950 - 1300 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 65 L - 95 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Millennium Samriddhi -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Millennium Samriddhi', 'assets/properties/Property Points Millennium Samriddhi Punawale Elevation.jpeg', 'Punawale, Pune', '2, 3 BHK | 800 - 1100 SQ. FT.', '₹ 55 L - 85 L', 'Millennium Group')">
+                        <div class="card-image">
+                            <span class="tag-new">Trending</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/Property Points Millennium Samriddhi Punawale Elevation.jpeg"
+                                alt="Millennium Samriddhi">
+                        </div>
+                        <div class="card-details">
+                            <h4>Millennium Samriddhi <span class="rera-tag">RERA <i
+                                        class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By Millennium Group</p>
+                            <p class="location">Punawale, Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>800 - 1100 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 55 L - 85 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rahul Downtown -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Rahul Downtown', 'assets/properties/BB Rahul Downtown Elevation.jpeg', 'Tathawade, Pune', '2, 3 BHK | 1000 - 1500 SQ. FT.', '₹ 75 L - 1.2 Cr', 'Rahul Construction')">
+                        <div class="card-image">
+                            <span class="tag-new">Premium</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB Rahul Downtown Elevation.jpeg" alt="Rahul Downtown">
+                        </div>
+                        <div class="card-details">
+                            <h4>Rahul Downtown <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span>
+                            </h4>
+                            <p class="developer">By Rahul Construction</p>
+                            <p class="location">Tathawade, Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>1000 - 1500 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 75 L - 1.2 Cr</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saheel Properties -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Saheel Properties', 'assets/properties/Property Point Saheel Tathawade Elevation.jpeg', 'Tathawade, Pune', '3, 4 BHK | 1400 - 2200 SQ. FT.', '₹ 1.1 Cr - 2.5 Cr', 'Saheel Properties')">
+                        <div class="card-image">
+                            <span class="tag-new">Luxury</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/Property Point Saheel Tathawade Elevation.jpeg"
+                                alt="Saheel Properties">
+                        </div>
+                        <div class="card-details">
+                            <h4>Saheel <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By Saheel Properties</p>
+                            <p class="location">Tathawade, Pune</p>
+                            <div class="specs">
+                                <span>3, 4 BHK</span>
+                                <span>1400 - 2200 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 1.1 Cr - 2.5 Cr</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AA Privilege -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'AA Privilege', 'assets/properties/BB AA privilege Campaign-1.jpeg', 'Pune', 'Premium 2, 3 BHK', '₹ Call for Price', 'AA Group')">
+                        <div class="card-image">
+                            <span class="tag-new">Exclusive</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB AA privilege Campaign-1.jpeg" alt="AA Privilege">
+                        </div>
+                        <div class="card-details">
+                            <h4>AA Privilege <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By AA Group</p>
+                            <p class="location">Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>On Request</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ Call for Price</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AA Privilege Campaign -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'AA Privilege Campaign', 'assets/properties/BB AA privilege Campaign.jpeg', 'Pune', 'Premium 3 BHK', '₹ Call for Price', 'AA Group')">
+                        <div class="card-image">
+                            <span class="tag-new">Offer</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB AA privilege Campaign.jpeg" alt="AA Privilege">
+                        </div>
+                        <div class="card-details">
+                            <h4>AA Privilege <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By AA Group</p>
+                            <p class="location">Pune</p>
+                            <div class="specs">
+                                <span>3 BHK</span>
+                                <span>On Request</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ Call for Price</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 108 Astra Video -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Astra Towers', 'assets/properties/BB Digital 108 Astra Punawale Video 2.jpeg', 'Punawale, Pune', '2, 3 BHK', '₹ 65 L - 95 L', '108 Avenues')">
+                        <div class="card-image">
+                            <span class="tag-new">New Block</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB Digital 108 Astra Punawale Video 2.jpeg" alt="Astra Towers">
+                        </div>
+                        <div class="card-details">
+                            <h4>Astra Towers <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By 108 Avenues</p>
+                            <p class="location">Punawale, Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>950 - 1300 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 65 L - 95 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mamurdi Heights -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Mamurdi Heights', 'assets/properties/BB Digital Mamurdi Elevation.jpeg', 'Mamurdi, Pune', '1, 2 BHK', '₹ 35 L - 55 L', 'BigBlock Select')">
+                        <div class="card-image">
+                            <span class="tag-new">Affordable</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB Digital Mamurdi Elevation.jpeg" alt="Mamurdi Heights">
+                        </div>
+                        <div class="card-details">
+                            <h4>Mamurdi Heights <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span>
+                            </h4>
+                            <p class="developer">By BigBlock Select</p>
+                            <p class="location">Mamurdi, Pune</p>
+                            <div class="specs">
+                                <span>1, 2 BHK</span>
+                                <span>600 - 900 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 35 L - 55 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Santosa -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Santosa Punawale', 'assets/properties/BB Digital Santosa Punawale Balcony ( Krishna ).jpeg', 'Punawale, Pune', '2, 3 BHK', '₹ 50 L - 75 L', 'Krishna Group')">
+                        <div class="card-image">
+                            <span class="tag-new">Ready</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB Digital Santosa Punawale Balcony ( Krishna ).jpeg"
+                                alt="Santosa">
+                        </div>
+                        <div class="card-details">
+                            <h4>Santosa <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By Krishna Group</p>
+                            <p class="location">Punawale, Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>850 - 1100 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 50 L - 75 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rahul Downtown Ph 1 -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Rahul Downtown Ph 1', 'assets/properties/BB Rahul Downtown Elevation 01.jpeg', 'Tathawade, Pune', '2 BHK', '₹ 70 L - 90 L', 'Rahul Construction')">
+                        <div class="card-image">
+                            <span class="tag-new">Last Few</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB Rahul Downtown Elevation 01.jpeg" alt="Rahul Downtown">
+                        </div>
+                        <div class="card-details">
+                            <h4>Rahul Downtown <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span>
+                            </h4>
+                            <p class="developer">By Rahul Construction</p>
+                            <p class="location">Tathawade, Pune</p>
+                            <div class="specs">
+                                <span>2 BHK</span>
+                                <span>900 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 70 L - 90 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rahul Downtown Ph 2 -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Rahul Downtown Ph 2', 'assets/properties/BB Rahul Downtown Elevation 02.jpeg', 'Tathawade, Pune', '3 BHK', '₹ 95 L - 1.2 Cr', 'Rahul Construction')">
+                        <div class="card-image">
+                            <span class="tag-new">New Tower</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/BB Rahul Downtown Elevation 02.jpeg" alt="Rahul Downtown">
+                        </div>
+                        <div class="card-details">
+                            <h4>Rahul Downtown <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span>
+                            </h4>
+                            <p class="developer">By Rahul Construction</p>
+                            <p class="location">Tathawade, Pune</p>
+                            <div class="specs">
+                                <span>3 BHK</span>
+                                <span>1200 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 95 L - 1.2 Cr</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LR Punawale -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'LR Punawale', 'assets/properties/Property Point LR Punawale Concept.jpeg', 'Punawale, Pune', '2, 3 BHK', '₹ 60 L - 90 L', 'LR Group')">
+                        <div class="card-image">
+                            <span class="tag-new">Concept</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/Property Point LR Punawale Concept.jpeg" alt="LR Punawale">
+                        </div>
+                        <div class="card-details">
+                            <h4>LR Punawale <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By LR Group</p>
+                            <p class="location">Punawale, Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>950 - 1250 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 60 L - 90 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Punawale Greens -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Punawale Greens', 'assets/properties/Property Point Punawale Gen.jpeg', 'Punawale, Pune', '2 BHK', '₹ 45 L - 65 L', 'BigBlock Budget')">
+                        <div class="card-image">
+                            <span class="tag-new">Budget</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/Property Point Punawale Gen.jpeg" alt="Punawale Greens">
+                        </div>
+                        <div class="card-details">
+                            <h4>Punawale Greens <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span>
+                            </h4>
+                            <p class="developer">By BigBlock Budget</p>
+                            <p class="location">Punawale, Pune</p>
+                            <div class="specs">
+                                <span>2 BHK</span>
+                                <span>800 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 45 L - 65 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Millennium View 2 -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Millennium Samriddhi View', 'assets/properties/Property Points Millennium Samriddhi Punawale Elevation-1.jpeg', 'Punawale, Pune', '2, 3 BHK', '₹ 55 L - 85 L', 'Millennium Group')">
+                        <div class="card-image">
+                            <span class="tag-new">Trending</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/Property Points Millennium Samriddhi Punawale Elevation-1.jpeg"
+                                alt="Millennium Samriddhi">
+                        </div>
+                        <div class="card-details">
+                            <h4>Millennium View <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span>
+                            </h4>
+                            <p class="developer">By Millennium Group</p>
+                            <p class="location">Punawale, Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>800 - 1100 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 55 L - 85 L</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exclusive 1 -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Exclusive Project A', 'assets/properties/WhatsApp Image 2026-01-11 at 10.50.06 AM (1).jpeg', 'Pune', '3, 4, 5 BHK', '₹ On Request', 'BigBlock Signature')">
+                        <div class="card-image">
+                            <span class="tag-new">Signature</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/WhatsApp Image 2026-01-11 at 10.50.06 AM (1).jpeg"
+                                alt="Exclusive A">
+                        </div>
+                        <div class="card-details">
+                            <h4>Signature A <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By BigBlock Signature</p>
+                            <p class="location">Pune</p>
+                            <div class="specs">
+                                <span>3, 4, 5 BHK</span>
+                                <span>2500+ SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ On Request</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exclusive 2 -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Exclusive Project B', 'assets/properties/WhatsApp Image 2026-01-11 at 10.50.06 AM.jpeg', 'Baner, Pune', '3, 4 BHK', '₹ 2 Cr+', 'BigBlock Luxe')">
+                        <div class="card-image">
+                            <span class="tag-new">Ultra Lux</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/WhatsApp Image 2026-01-11 at 10.50.06 AM.jpeg"
+                                alt="Exclusive B">
+                        </div>
+                        <div class="card-details">
+                            <h4>Luxury Baner <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span></h4>
+                            <p class="developer">By BigBlock Luxe</p>
+                            <p class="location">Baner, Pune</p>
+                            <div class="specs">
+                                <span>3, 4 BHK</span>
+                                <span>1800+ SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 2 Cr+</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exclusive 3 -->
+                    <div class="trending-card"
+                        onclick="openPropertyModal(event, 'Exclusive Project C', 'assets/properties/WhatsApp Image 2026-01-11 at 10.50.07 AM.jpeg', 'Hinjewadi, Pune', '2, 3 BHK', '₹ 75 L - 1 Cr', 'BigBlock Prime')">
+                        <div class="card-image">
+                            <span class="tag-new">Prime</span>
+                            <span class="tag-fav"><i class="far fa-heart"></i></span>
+                            <img src="assets/properties/WhatsApp Image 2026-01-11 at 10.50.07 AM.jpeg"
+                                alt="Exclusive C">
+                        </div>
+                        <div class="card-details">
+                            <h4>Prime Hinjewadi <span class="rera-tag">RERA <i class="fas fa-check-circle"></i></span>
+                            </h4>
+                            <p class="developer">By BigBlock Prime</p>
+                            <p class="location">Hinjewadi, Pune</p>
+                            <div class="specs">
+                                <span>2, 3 BHK</span>
+                                <span>1000 - 1400 SQ. FT.</span>
+                            </div>
+                            <div class="price-action">
+                                <span class="price">₹ 75 L - 1 Cr</span>
+                                <button class="btn-contact">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-btn next" id="slideNext"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
     <section id="properties">
         <div class="container">
             <h2 class="section-title fade-in-up">Our Prime Locations</h2>
@@ -520,6 +956,49 @@
             </div>
         </div>
     </footer>
+
+    <!-- Property Modal -->
+    <div id="propertyModal" class="custom-modal-wrapper">
+        <div class="modal-content property-modal-content">
+            <span class="close-modal text-dark" onclick="closePropertyModal()">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-img-wrapper">
+                    <img id="pm-img" src="" alt="Property Image">
+                </div>
+                <div class="modal-details">
+                    <span class="pm-badge">RERA Approved</span>
+                    <h2 id="pm-title">Project Name</h2>
+                    <p id="pm-developer" class="text-muted">By Developer</p>
+                    <p id="pm-location"><i class="fas fa-map-marker-alt"></i> <span>Location</span></p>
+
+                    <div class="pm-specs">
+                        <div class="pm-spec-item">
+                            <i class="fas fa-bed"></i>
+                            <span id="pm-config">2, 3 BHK</span>
+                        </div>
+                        <div class="pm-spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <span id="pm-area">Area details here</span>
+                        </div>
+                    </div>
+
+                    <h3 id="pm-price" class="pm-price">₹ Price</h3>
+
+                    <p class="pm-desc">Experience the epitome of luxury living with world-class amenities and strategic
+                        connectivity.</p>
+
+                    <div class="pm-actions">
+                        <a href="tel:+918888825174" class="btn-action call"><i class="fas fa-phone-alt"></i> Call
+                            Now</a>
+                        <a href="https://wa.me/918888825174" class="btn-action whatsapp"><i class="fab fa-whatsapp"></i>
+                            WhatsApp</a>
+                        <a href="mailto:admin@bigblockinfraworld.in" class="btn-action email"><i
+                                class="fas fa-envelope"></i> Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Floating Action Buttons -->
     <div class="fab-container-left">

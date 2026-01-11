@@ -266,3 +266,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initLightbox();
 });
+
+// Trending Projects Slider
+const slidePrev = document.getElementById('slidePrev');
+const slideNext = document.getElementById('slideNext');
+const trendingScroll = document.getElementById('trendingScroll');
+
+if (slidePrev && slideNext && trendingScroll) {
+    slidePrev.addEventListener('click', () => {
+        trendingScroll.scrollBy({ left: -340, behavior: 'smooth' }); // Card width + gap
+    });
+
+    slideNext.addEventListener('click', () => {
+        trendingScroll.scrollBy({ left: 340, behavior: 'smooth' });
+    });
+}
+
+// Property Modal Logic
+let propertyModal = document.getElementById('propertyModal');
+
+window.openPropertyModal = function (e, title, imgSrc, location, specs, price, developer) {
+    console.log("openPropertyModal called for", title);
+    if (e && e.stopPropagation) {
+        console.log("Stopping propagation");
+        e.stopPropagation();
+    }
+
+    propertyModal = document.getElementById('propertyModal'); // Ensure access
+    console.log("propertyModal element:", propertyModal);
+    if (!propertyModal) {
+        console.error("propertyModal not found!");
+        return;
+    }
+
+    // Populate data
+    document.getElementById('pm-title').innerText = title;
+    document.getElementById('pm-img').src = imgSrc;
+    document.getElementById('pm-img').alt = title;
+    document.getElementById('pm-location').innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + location;
+
+    const specParts = specs.split('|');
+    document.getElementById('pm-config').innerText = specParts[0] ? specParts[0].trim() : '';
+    document.getElementById('pm-area').innerText = specParts[1] ? specParts[1].trim() : '';
+
+    document.getElementById('pm-price').innerText = price;
+    document.getElementById('pm-developer').innerText = "By " + developer;
+
+    propertyModal.style.setProperty('display', 'block', 'important');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closePropertyModal = function () {
+    propertyModal = document.getElementById('propertyModal');
+    if (propertyModal) {
+        propertyModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+};
+
+// Close on outside click
+window.addEventListener('click', (e) => {
+    if (e.target == propertyModal) {
+        closePropertyModal();
+    }
+});
