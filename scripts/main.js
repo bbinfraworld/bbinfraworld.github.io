@@ -324,6 +324,34 @@ window.closePropertyModal = function () {
     }
 };
 
+// Contact Form Logic - WhatsApp Integration
+window.submitContactForm = function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('contactName').value;
+    const countryCode = document.getElementById('contactCode').value;
+    const phone = document.getElementById('contactPhone').value;
+    const email = document.getElementById('contactEmail').value;
+    const message = document.getElementById('contactMessage').value;
+
+    // Validation
+    if (!name || !phone || !email) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    const fullMessage = `*New Inquiry from Website*\n\n*Name:* ${name}\n*Phone:* ${countryCode} ${phone}\n*Email:* ${email}\n*Message:* ${message || "No message"}`;
+
+    const encodedMessage = encodeURIComponent(fullMessage);
+    const whatsappUrl = `https://wa.me/918888825174?text=${encodedMessage}`;
+
+    // Show success feedback
+    alert("Thank you! Opening WhatsApp to send your message...");
+
+    // Redirect
+    window.open(whatsappUrl, '_blank');
+};
+
 // Close on outside click
 window.addEventListener('click', (e) => {
     if (e.target == propertyModal) {
